@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swaad - অসাধারণ স্বাদের আধুনিক রেস্তোরাঁ</title>
+    <meta name="description"
+        content="Swaad - যেখানে আধুনিকতা এবং ঐতিহ্য মিলেমিশে একাকার। আমাদের সেরা খাবারের স্বাদ নিন।">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header Section -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-utensils"></i> SWAAD
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">হোম</a></li>
+                    <li><a href="#menu">মেন্যু</a></li>
+                    <li><a href="#reviews">রিভিউ</a></li>
+                    <li><a href="#contact">যোগাযোগ</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <div class="search-icon" id="search-btn" style="cursor: pointer; font-size: 1.2rem;">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="cart-icon" id="cart-btn" onclick="toggleCart()">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <button class="btn btn-primary" style="padding: 0.6rem 1.5rem;" onclick="toggleCart()">অর্ডার করুন</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>স্বাদের দুনিয়ায় <span>স্বাগতম</span></h1>
+                <p>আধুনিক সুযোগ-সুবিধা এবং অসাধারণ পরিবেশে সেরা খাবারের অভিজ্ঞতা নিন। প্রতিটি কামড়ে পাবেন ঐতিহ্যের
+                    ছোঁয়া।</p>
+                <div class="cta-group">
+                    <a href="#menu" class="btn btn-primary">মেন্যু দেখুন</a>
+                    <a href="#contact" class="btn"
+                        style="color: var(--text-light); border: 1px solid var(--glass-border); margin-left: 1rem;">বুকিং
+                        করুন</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg" id="hero-img"></div>
+    </section>
+
+    <!-- Categories / Tabs -->
+    <section class="section container" id="menu">
+        <div style="text-align: center; margin-bottom: var(--spacing-lg);">
+            <h2 style="font-size: 2.5rem;">আজকের <span style="color: var(--primary);">সেরা মেন্যু</span></h2>
+            <p style="color: var(--text-muted);">আপনার পছন্দের ক্যাটাগরি বেছে নিন</p>
+        </div>
+
+        <div class="menu-tabs">
+            <div class="tab active" onclick="filterMenu('all')">সবগুলো</div>
+            <div class="tab" onclick="filterMenu('biryani')">বিরিয়ানি</div>
+            <div class="tab" onclick="filterMenu('kabab')">কাবাব</div>
+            <div class="tab" onclick="filterMenu('dessert')">ডেজার্ট</div>
+        </div>
+
+        <div class="menu-grid" id="menu-container">
+            <!-- Menu items will be injected by JS -->
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section" id="reviews" style="background: rgba(240, 165, 0, 0.05);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--spacing-md);">
+                <h2>গ্রাহকদের <span style="color: var(--primary);">মতামত</span></h2>
+            </div>
+            <div style="display: flex; gap: var(--spacing-md); overflow-x: auto; padding-bottom: var(--spacing-md);">
+                <div class="food-card" style="min-width: 300px; padding: var(--spacing-md);">
+                    <div style="color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"এখানকার বিরিয়ানি একদম অন্যরকম! পরিবেশনা এবং ব্যবহার খুব ভালো।"</p>
+                    <div style="margin-top: 1rem; font-weight: 600;">- আকাশ আহমেদ</div>
+                </div>
+                <div class="food-card" style="min-width: 300px; padding: var(--spacing-md);">
+                    <div style="color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"অসাধারণ পরিবেশ এবং খাবারের মান। ডেজার্টগুলো অবশ্যই ট্রাই করা উচিত।"</p>
+                    <div style="margin-top: 1rem; font-weight: 600;">- নুসরাত জাহান</div>
+                </div>
+                <div class="food-card" style="min-width: 300px; padding: var(--spacing-md);">
+                    <div style="color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"খুবই আধুনিক এবং পরিষ্কার। বন্ধুদের নিয়ে আসার জন্য সেরা জায়গা।"</p>
+                    <div style="margin-top: 1rem; font-weight: 600;">- তন্ময় দাস</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">SWAAD</div>
+                    <p>সেরা মানের খাবার এবং আধুনিক সেবার নিশ্চয়তা। আমরা আপনার খাবারের অভিজ্ঞতাকে করতে চাই স্মরণীয়।</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 1.2rem;">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3>দ্রুত লিংক</h3>
+                    <ul style="margin-top: 1rem;">
+                        <li><a href="#">প্রাইভেসি পলিসি</a></li>
+                        <li><a href="#">শর্তাবলী</a></li>
+                        <li><a href="#">রিফান্ড পলিসি</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>যোগাযোগ</h3>
+                    <ul style="margin-top: 1rem;">
+                        <li><i class="fas fa-location-dot"></i> বনানী, ঢাকা-১২১৩</li>
+                        <li><i class="fas fa-phone"></i> +৮৮০ ১২৩৪ ৫৬৭৮৯০</li>
+                        <li><i class="fas fa-envelope"></i> info@swaad.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                style="text-align: center; margin-top: var(--spacing-lg); border-top: 1px solid var(--glass-border); padding-top: var(--spacing-md);">
+                <p>&copy; ২০২৪ Swaad. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>আপনার ব্যাগ (<span class="cart-count">0</span>)</h3>
+            <div class="cart-close" onclick="toggleCart()">&times;</div>
+        </div>
+        <div class="cart-body" id="cart-items-container">
+            <!-- Cart items will be injected here -->
+            <div class="empty-cart-msg">আপনার ব্যাগ খালি</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>মোট:</span>
+                <span id="cart-total-amount">৳০</span>
+            </div>
+            <button class="btn btn-primary w-100" onclick="showCheckout()">চেকআউট করুন</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="checkout-container">
+            <div class="checkout-close" onclick="closeCheckout()">&times;</div>
+            <div class="checkout-content">
+                <h2>অর্ডার সম্পন্ন করুন</h2>
+                
+                <div class="checkout-steps">
+                    <div class="checkout-section">
+                        <h4><i class="fas fa-location-dot"></i> ডেলিভারি ঠিকানা</h4>
+                        <div class="input-group">
+                            <input type="text" placeholder="আপনার নাম" id="cust-name">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" placeholder="ফোন নম্বর" id="cust-phone">
+                        </div>
+                        <div class="input-group">
+                            <textarea placeholder="বিস্তারিত ঠিকানা (রাস্তা, বাড়ি নং, ফ্লোর)" id="cust-address"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="checkout-section" style="margin-top: 2rem;">
+                        <h4><i class="fas fa-credit-card"></i> পেমেন্ট মেথড</h4>
+                        <div class="payment-options">
+                            <div class="payment-card active" onclick="selectPayment(this, 'bkash')">
+                                <img src="https://web.shadhinmusic.com/public/payment-gateways/bkash.png" alt="bkash" style="height: 30px;">
+                                <span>বিকাশ</span>
+                            </div>
+                            <div class="payment-card" onclick="selectPayment(this, 'nagad')">
+                                <img src="https://static.thenounproject.com/png/5054238-200.png" alt="nagad" style="height: 30px;">
+                                <span>নগদ</span>
+                            </div>
+                            <div class="payment-card" onclick="selectPayment(this, 'cod')">
+                                <i class="fas fa-truck" style="font-size: 1.5rem;"></i>
+                                <span>ক্যাশ অন ডেলিভারি</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-summary">
+                    <div class="summary-row">
+                        <span>সাবটোটাল</span>
+                        <span id="summary-subtotal">৳০</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>ডেলিভারি ফি</span>
+                        <span>৳৫০</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>মোট পরিশোধযোগ্য</span>
+                        <span id="summary-total">৳০</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary w-100" style="margin-top: 2rem;" onclick="confirmOrder()">অর্ডার নিশ্চিত করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-close" id="search-close">&times;</div>
+        <div class="search-box">
+            <input type="text" placeholder="খাবার খুঁজুন..." id="search-input">
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
