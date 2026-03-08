@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সরকারি কর্মকর্তা পোর্টাল - স্মার্ট বাংলাদেশ</title>
+    <link rel="stylesheet" href="officer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-landmark"></i>
+                    <span>GOV PORTAL</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-th-large"></i> ড্যাশবোর্ড</a></li>
+                    <li><a href="#"><i class="fas fa-folder-open"></i> নতুন আবেদন <span class="badge">১২</span></a></li>
+                    <li><a href="#"><i class="fas fa-file-signature"></i> পেন্ডিং ফাইল</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> নাগরিক ডাটাবেজ</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> বিভাগীয় রিপোর্ট</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> সেটিংস</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="officer-card">
+                    <img src="https://i.pravatar.cc/150?u=officer" alt="Officer">
+                    <div class="info">
+                        <p class="name">আব্দুল্লাহ আল নাছের</p>
+                        <p class="role">উপজেলা নির্বাহী অফিসার</p>
+                    </div>
+                </div>
+                <a href="dashboard.html" class="logout"><i class="fas fa-sign-out-alt"></i> লগ আউট</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content-area">
+            <header class="top-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="নথি বা এনআইডি নম্বর খুঁজুন...">
+                </div>
+                <div class="top-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="date-time" id="live-clock">১২:৪৫ PM | ৮ মার্চ, ২০২৬</div>
+                </div>
+            </header>
+
+            <section class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="icon blue"><i class="fas fa-envelope-open-text"></i></div>
+                    <div class="stat-info">
+                        <h3>মোট আবেদন</h3>
+                        <p class="value">১,৪৫০</p>
+                        <span class="trend up"><i class="fas fa-arrow-up"></i> ১২% বৃদ্ধি</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon orange"><i class="fas fa-clock"></i></div>
+                    <div class="stat-info">
+                        <h3>পেন্টিং অভিযোগ</h3>
+                        <p class="value">৮৬</p>
+                        <span class="trend down"><i class="fas fa-arrow-down"></i> ৫% হ্রাস</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon green"><i class="fas fa-check-circle"></i></div>
+                    <div class="stat-info">
+                        <h3>সম্পন্ন কাজ</h3>
+                        <p class="value">১,৩২০</p>
+                        <span class="trend up"><i class="fas fa-arrow-up"></i> ৮% বৃদ্ধি</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="data-table-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-database"></i> সেন্ট্রাল ডাটাবেজ এক্সেস</h2>
+                    <div class="table-actions">
+                        <button class="btn-filter"><i class="fas fa-filter"></i> ফিল্টার</button>
+                        <button class="btn-export"><i class="fas fa-download"></i> এক্সপোর্ট</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>আইডি</th>
+                                <th>নাগরিকের নাম</th>
+                                <th>সেবার ধরন</th>
+                                <th>তারিখ</th>
+                                <th>অবস্থা</th>
+                                <th>অ্যাকশন</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#NCC-8821</td>
+                                <td>রফিকুল ইসলাম</td>
+                                <td>রাস্তা মেরামত</td>
+                                <td class="date">০৭ মার্চ, ২০২৬</td>
+                                <td><span class="status-pill pending">পেন্ডিং</span></td>
+                                <td><button class="btn-view" onclick="viewFile('NCC-8821')">ফাইল দেখুন</button></td>
+                            </tr>
+                            <tr>
+                                <td>#NCC-8790</td>
+                                <td>সুফিয়া বেগম</td>
+                                <td>স্বাস্থ্য ভাতা</td>
+                                <td class="date">০৬ মার্চ, ২০২৬</td>
+                                <td><span class="status-pill processing">প্রসেসিং</span></td>
+                                <td><button class="btn-view" onclick="viewFile('NCC-8790')">ফাইল দেখুন</button></td>
+                            </tr>
+                            <tr>
+                                <td>#NCC-8755</td>
+                                <td>কামাল আহমেদ</td>
+                                <td>বিদ্যুৎ সংযোগ</td>
+                                <td class="date">০৫ মার্চ, ২০২৬</td>
+                                <td><span class="status-pill completed">সম্পন্ন</span></td>
+                                <td><button class="btn-view" onclick="viewFile('NCC-8755')">ফাইল দেখুন</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Details View Modal (Hidden) -->
+    <div class="modal" id="file-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">নথি আইডি: #NCC-8821</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="file-details">
+                    <div class="detail-row"><span>আবেদনকারী:</span> <b id="detail-name">রফিকুল ইসলাম</b></div>
+                    <div class="detail-row"><span>ঠিকানা:</span> <b>উত্তরা, ঢাকা</b></div>
+                    <div class="detail-row"><span>অভিযোগ:</span> <b>সেক্টর ৪-এর প্রধান রাস্তা ভাঙা, বৃষ্টির পানি জমে থাকে।</b></div>
+                    <div class="detail-row"><span>সংযুক্ত ছবি:</span> <div class="image-placeholder">Road_Photo.jpg</div></div>
+                </div>
+                <div class="approval-actions">
+                    <button class="btn-approve" onclick="action('Approve')"><i class="fas fa-check"></i> অনুমোদন দিন</button>
+                    <button class="btn-reject" onclick="action('Reject')"><i class="fas fa-times"></i> বাতিল করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="officer.js"></script>
+</body>
+</html>

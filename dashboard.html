@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>স্মার্ট বাংলাদেশ - লাইভ কমান্ড সেন্টার</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="stars-bg"></div>
+    <div class="noise-bg"></div>
+
+    <header class="dashboard-header">
+        <div class="logo-section">
+            <div class="logo-icon"><i class="fas fa-shield-halved"></i></div>
+            <div class="logo-text">
+                <h1>BANGLADESH</h1>
+                <span>NATIONAL COMMAND CENTER</span>
+            </div>
+        </div>
+        <div class="header-stats">
+            <div class="stat-item">
+                <span class="label">পাবলিক ফিডব্যাক</span>
+                <span class="value">৮৮%</span>
+                <div class="progress-bar"><div class="fill" style="width: 88%"></div></div>
+            </div>
+            <div class="stat-item">
+                <span class="label">প্রজেক্ট সম্পন্ন</span>
+                <span class="value">৯৫%</span>
+                <div class="progress-bar"><div class="fill" style="width: 95%"></div></div>
+            </div>
+        </div>
+        <div class="user-actions">
+            <button class="btn-report" onclick="openReportModal()">
+                <i class="fas fa-plus"></i> নতুন রিপোর্ট
+            </button>
+            <a href="officer_dashboard.html" title="Officer Portal" style="color: var(--primary-cyan); font-size: 1.5rem; text-decoration: none;">
+                <i class="fas fa-user-tie"></i>
+            </a>
+            <div class="admin-profile">
+                <img src="assets/leader_portrait.png" alt="Admin" onerror="this.src='https://i.pravatar.cc/150?u=admin'">
+                <div class="status-indicator online"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <aside class="sidebar-left">
+            <div class="card glass">
+                <h3><i class="fas fa-chart-line"></i> রিয়েল-টাইম ডাটা</h3>
+                <div class="data-row">
+                    <span>জনসংখ্যা</span>
+                    <span class="count" id="pop-count"> ১৭ কোটি ৪০ লক্ষ</span>
+                </div>
+                <div class="data-row">
+                    <span>সক্রিয় অভিযোগ</span>
+                    <span class="count red">১২,৪৫০</span>
+                </div>
+                <div class="data-row">
+                    <span>সমাধানকৃত (আজ)</span>
+                    <span class="count green">৩,৮২০</span>
+                </div>
+                <canvas id="mini-chart" height="100"></canvas>
+            </div>
+
+            <div class="card glass mt-20">
+                <h3><i class="fas fa-location-arrow"></i> হট-স্পট জোন</h3>
+                <div class="hotspot-list">
+                    <div class="hotspot-item">
+                        <span class="city">ঢাকা বিভাগ</span>
+                        <span class="level high">High Alert</span>
+                    </div>
+                    <div class="hotspot-item">
+                        <span class="city">চট্টগ্রাম বিভাগ</span>
+                        <span class="level medium">Medium</span>
+                    </div>
+                    <div class="hotspot-item">
+                        <span class="city">সিলেট বিভাগ</span>
+                        <span class="level low">Stable</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <section class="map-container">
+            <div class="map-overlay-top">
+                <div class="location-scanner">
+                    <span id="scanning-loc">স্ক্যানিং: ঢাকা সদর...</span>
+                </div>
+            </div>
+            
+            <!-- SVG Map of Bangladesh (Simplified) -->
+            <div class="map-svg-wrapper">
+                <svg id="bd-map" viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg">
+                    <!-- This is a placeholder SVG path for BD map, simplified -->
+                    <path class="division dhaka" d="M250,300 L300,320 L310,380 L260,400 L220,380 Z" onclick="selectDivision('Dhaka')"></path>
+                    <path class="division chittagong" d="M310,380 L380,450 L420,650 L350,650 L320,500 Z" onclick="selectDivision('Chittagong')"></path>
+                    <path class="division sylhet" d="M300,320 L400,280 L420,350 L350,380 Z" onclick="selectDivision('Sylhet')"></path>
+                    <path class="division rajshahi" d="M150,250 L250,300 L220,380 L120,350 Z" onclick="selectDivision('Rajshahi')"></path>
+                    <path class="division barisal" d="M260,400 L320,500 L300,580 L230,580 L210,500 Z" onclick="selectDivision('Barisal')"></path>
+                    <path class="division khulna" d="M120,350 L220,380 L210,500 L180,600 L100,550 Z" onclick="selectDivision('Khulna')"></path>
+                    <path class="division rangpur" d="M180,100 L260,150 L250,300 L150,250 Z" onclick="selectDivision('Rangpur')"></path>
+                    <path class="division mymensingh" d="M260,150 L350,220 L300,320 L250,300 Z" onclick="selectDivision('Mymensingh')"></path>
+                </svg>
+                
+                <!-- Animation Pulse Points -->
+                <div class="pulse-point" style="top: 45%; left: 55%;"></div>
+                <div class="pulse-point" style="top: 60%; left: 70%;"></div>
+                <div class="pulse-point red" style="top: 52%; left: 52%;"></div>
+            </div>
+
+            <div class="map-overlay-bottom">
+                <div class="glass stats-grid">
+                    <div class="grid-item">
+                        <h4>ট্রান্সপারেন্সি ইনডেক্স</h4>
+                        <div class="value">৮২.৫%</div>
+                    </div>
+                    <div class="grid-item">
+                        <h4>প্রশাসন জবাবদিহিতা</h4>
+                        <div class="value">৯১.০%</div>
+                    </div>
+                    <div class="grid-item">
+                        <h4>নাগরিক সন্তুষ্টি</h4>
+                        <div class="value">৮৫.৪%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="sidebar-right">
+            <div class="card glass scoreboard">
+                <h3><i class="fas fa-trophy"></i> লিডারবোর্ড (অফিসার)</h3>
+                <div class="ranking-list">
+                    <div class="rank-item first">
+                        <span class="pos">১</span>
+                        <div class="info">
+                            <span class="name">ডিসি, ঢাকা</span>
+                            <span class="score">৯৮.২</span>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <span class="pos">২</span>
+                        <div class="info">
+                            <span class="name">এসপি, রাজশাহী</span>
+                            <span class="score">৯৬.৫</span>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <span class="pos">৩</span>
+                        <div class="info">
+                            <span class="name">ইউএনও, বগুড়া</span>
+                            <span class="score">৯৫.৮</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card glass alerts">
+                <h3><i class="fas fa-bell"></i> লাইভ আপডেট</h3>
+                <div class="alert-feed">
+                    <div class="alert active">
+                        <i class="fas fa-circle-exclamation"></i>
+                        <p>উত্তরার রাস্তা মেরামতের অভিযোগ সমাধান হয়েছে।</p>
+                        <span>২ মিনিট আগে</span>
+                    </div>
+                    <div class="alert">
+                        <i class="fas fa-circle-exclamation"></i>
+                        <p>সাভারে বৃষ্টির কারণে বিদ্যুৎ বিভ্রাট রিপোর্ট করা হয়েছে।</p>
+                        <span>১০ মিনিট আগে</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Report Modal (Combines User's previous request: Address, Payment, Add to Cart logic) -->
+    <div class="modal" id="report-modal">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h2>জরুরি সেবা/অভিযোগ দাখিল</h2>
+                <button class="close-btn" onclick="closeReportModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="step-progress">
+                    <div class="step active" id="step1-indicator">১. তথ্য</div>
+                    <div class="step" id="step2-indicator">২. ঠিকানা</div>
+                    <div class="step" id="step3-indicator">৩. পেমেন্ট (ঐচ্ছিক)</div>
+                </div>
+
+                <div class="report-form" id="report-form">
+                    <!-- Step 1 -->
+                    <div class="form-step active" id="form-step1">
+                        <div class="input-field">
+                            <label>অভিযোগের বিষয়</label>
+                            <select id="report-type">
+                                <option>দুর্নীতি/ঘুষ</option>
+                                <option>অবকাঠামো/রাস্তা</option>
+                                <option>স্বাস্থ্যসেবা</option>
+                                <option>নিরাপত্তা</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>বিস্তারিত বিবরণ</label>
+                            <textarea placeholder="আপনার অভিযোগ বিস্তারিত লিখুন..."></textarea>
+                        </div>
+                        <button class="btn-primary" onclick="nextStep(2)">পরবর্তী</button>
+                    </div>
+
+                    <!-- Step 2: Address -->
+                    <div class="form-step" id="form-step2">
+                        <div class="input-field">
+                            <label>বিভাগ</label>
+                            <input type="text" placeholder="উদা: ঢাকা">
+                        </div>
+                        <div class="input-field">
+                            <label>বিস্তারিত ঠিকানা</label>
+                            <textarea placeholder="রাস্তা, বাড়ি নং, এলাকা..."></textarea>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn-secondary" onclick="nextStep(1)">পূর্ববর্তী</button>
+                            <button class="btn-primary" onclick="nextStep(3)">পরবর্তী</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Payment (Payment Gateway logic from before) -->
+                    <div class="form-step" id="form-step3">
+                        <p>অধিক গতির সেবার জন্য সাবস্ক্রিপশন (ঐচ্ছিক)</p>
+                        <div class="payment-cards">
+                            <div class="pay-card active" onclick="selectPay(this)">
+                                <img src="https://web.shadhinmusic.com/public/payment-gateways/bkash.png" alt="bkash">
+                                <span>বিকাশ</span>
+                            </div>
+                            <div class="pay-card" onclick="selectPay(this)">
+                                <img src="https://static.thenounproject.com/png/5054238-200.png" alt="nagad">
+                                <span>নগদ</span>
+                            </div>
+                        </div>
+                        <div class="summary">
+                            <span>সার্ভিস চার্জ:</span>
+                            <span>৳ ১০০</span>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn-secondary" onclick="nextStep(2)">পূর্ববর্তী</button>
+                            <button class="btn-primary" onclick="submitReport()">রিপোর্ট সম্পন্ন করুন</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

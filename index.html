@@ -4,244 +4,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swaad - অসাধারণ স্বাদের আধুনিক রেস্তোরাঁ</title>
-    <meta name="description"
-        content="Swaad - যেখানে আধুনিকতা এবং ঐতিহ্য মিলেমিশে একাকার। আমাদের সেরা খাবারের স্বাদ নিন।">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>সবার আগে বাংলাদেশ - সম্পূর্ণ প্রেজেন্টেশন</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
-    <!-- Header Section -->
-    <header id="header">
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <i class="fas fa-utensils"></i> SWAAD
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#home">হোম</a></li>
-                    <li><a href="#menu">মেন্যু</a></li>
-                    <li><a href="#reviews">রিভিউ</a></li>
-                    <li><a href="#contact">যোগাযোগ</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <div class="search-icon" id="search-btn" style="cursor: pointer; font-size: 1.2rem;">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <div class="cart-icon" id="cart-btn" onclick="toggleCart()">
-                        <i class="fas fa-shopping-bag"></i>
-                        <span class="cart-count">0</span>
-                    </div>
-                    <button class="btn btn-primary" style="padding: 0.6rem 1.5rem;" onclick="toggleCart()">অর্ডার করুন</button>
-                </div>
-            </nav>
+    <div id="presentation">
+        <div class="controls">
+            <button id="prevBtn">পূর্ববর্তী</button>
+            <span id="slideCounter">১ / ১৬</span>
+            <button id="nextBtn">পরবর্তী</button>
+            <button id="downloadPdf" style="background: #f42a41; margin-left: 10px;">পিডিএফ ডাউনলোড</button>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content fade-in">
-                <h1>স্বাদের দুনিয়ায় <span>স্বাগতম</span></h1>
-                <p>আধুনিক সুযোগ-সুবিধা এবং অসাধারণ পরিবেশে সেরা খাবারের অভিজ্ঞতা নিন। প্রতিটি কামড়ে পাবেন ঐতিহ্যের
-                    ছোঁয়া।</p>
-                <div class="cta-group">
-                    <a href="#menu" class="btn btn-primary">মেন্যু দেখুন</a>
-                    <a href="#contact" class="btn"
-                        style="color: var(--text-light); border: 1px solid var(--glass-border); margin-left: 1rem;">বুকিং
-                        করুন</a>
+        <!-- স্লাইড ১: শিরোনাম -->
+        <section class="slide active" id="slide1">
+            <div class="content main-title">
+                <div class="hero-flex">
+                    <img src="assets/main.png" alt="ব্যানার" class="hero-img">
+                    <img src="assets/leader_portrait.png" alt="তারেক রহমান" class="leader-img">
+                </div>
+                <h1>সবার আগে বাংলাদেশ</h1>
+                <p>জনগণের মৌলিক অধিকার নিশ্চিতকরণ এবং স্মার্ট প্রশাসনিক জবাবদিহিতার লক্ষ্যে জাতীয় প্ল্যাটফর্ম</p>
+                <div class="presenter-info">
+                    <p>নেতৃত্বে: <b>তারেক রহমান</b></p>
+                    <p>প্রস্তাবক: আবদুল্লাহ আল নাছের</p>
                 </div>
             </div>
-        </div>
-        <div class="hero-bg" id="hero-img"></div>
-    </section>
+        </section>
 
-    <!-- Categories / Tabs -->
-    <section class="section container" id="menu">
-        <div style="text-align: center; margin-bottom: var(--spacing-lg);">
-            <h2 style="font-size: 2.5rem;">আজকের <span style="color: var(--primary);">সেরা মেন্যু</span></h2>
-            <p style="color: var(--text-muted);">আপনার পছন্দের ক্যাটাগরি বেছে নিন</p>
-        </div>
-
-        <div class="menu-tabs">
-            <div class="tab active" onclick="filterMenu('all')">সবগুলো</div>
-            <div class="tab" onclick="filterMenu('biryani')">বিরিয়ানি</div>
-            <div class="tab" onclick="filterMenu('kabab')">কাবাব</div>
-            <div class="tab" onclick="filterMenu('dessert')">ডেজার্ট</div>
-        </div>
-
-        <div class="menu-grid" id="menu-container">
-            <!-- Menu items will be injected by JS -->
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section class="section" id="reviews" style="background: rgba(240, 165, 0, 0.05);">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: var(--spacing-md);">
-                <h2>গ্রাহকদের <span style="color: var(--primary);">মতামত</span></h2>
-            </div>
-            <div style="display: flex; gap: var(--spacing-md); overflow-x: auto; padding-bottom: var(--spacing-md);">
-                <div class="food-card" style="min-width: 300px; padding: var(--spacing-md);">
-                    <div style="color: var(--primary); margin-bottom: 1rem;">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p>"এখানকার বিরিয়ানি একদম অন্যরকম! পরিবেশনা এবং ব্যবহার খুব ভালো।"</p>
-                    <div style="margin-top: 1rem; font-weight: 600;">- আকাশ আহমেদ</div>
-                </div>
-                <div class="food-card" style="min-width: 300px; padding: var(--spacing-md);">
-                    <div style="color: var(--primary); margin-bottom: 1rem;">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p>"অসাধারণ পরিবেশ এবং খাবারের মান। ডেজার্টগুলো অবশ্যই ট্রাই করা উচিত।"</p>
-                    <div style="margin-top: 1rem; font-weight: 600;">- নুসরাত জাহান</div>
-                </div>
-                <div class="food-card" style="min-width: 300px; padding: var(--spacing-md);">
-                    <div style="color: var(--primary); margin-bottom: 1rem;">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p>"খুবই আধুনিক এবং পরিষ্কার। বন্ধুদের নিয়ে আসার জন্য সেরা জায়গা।"</p>
-                    <div style="margin-top: 1rem; font-weight: 600;">- তন্ময় দাস</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="footer-logo">SWAAD</div>
-                    <p>সেরা মানের খাবার এবং আধুনিক সেবার নিশ্চয়তা। আমরা আপনার খাবারের অভিজ্ঞতাকে করতে চাই স্মরণীয়।</p>
-                    <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 1.2rem;">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h3>দ্রুত লিংক</h3>
-                    <ul style="margin-top: 1rem;">
-                        <li><a href="#">প্রাইভেসি পলিসি</a></li>
-                        <li><a href="#">শর্তাবলী</a></li>
-                        <li><a href="#">রিফান্ড পলিসি</a></li>
+        <!-- স্লাইড ২: লক্ষ্য ও উদ্দেশ্য -->
+        <section class="slide" id="slide2">
+            <div class="content grid">
+                <div class="text-side">
+                    <h2>প্রকল্পের মূল লক্ষ্য ও উদ্দেশ্য</h2>
+                    <ul>
+                        <li><b>স্মার্ট বাংলাদেশ ২০৪১:</b> আধুনিক বিশ্বের সাথে তাল মিলিয়ে প্রযুক্তিনির্ভর স্বচ্ছ প্রশাসন।
+                        </li>
+                        <li><b>সরাসরি কানেক্টিভিটি:</b> সাধারণ নাগরিকের সাথে সরাসরি সরকার প্রধানের সংযোগ।</li>
+                        <li><b>দুর্নীতি নির্মূল:</b> প্রশাসনের প্রতিটি স্তরে জিরো টলারেন্স এবং স্বচ্ছতা নিশ্চিত করা।
+                        </li>
                     </ul>
                 </div>
-                <div>
-                    <h3>যোগাযোগ</h3>
-                    <ul style="margin-top: 1rem;">
-                        <li><i class="fas fa-location-dot"></i> বনানী, ঢাকা-১২১৩</li>
-                        <li><i class="fas fa-phone"></i> +৮৮০ ১২৩৪ ৫৬৭৮৯০</li>
-                        <li><i class="fas fa-envelope"></i> info@swaad.com</li>
+                <div class="image-side">
+                    <img src="assets/security.png" alt="নিরাপত্তা">
+                </div>
+            </div>
+        </section>
+
+        <!-- স্লাইড ৩: সেবায় প্রচলিত বাধা -->
+        <section class="slide" id="slide3">
+            <div class="content grid">
+                <div class="image-side">
+                    <img src="assets/corruption.png" alt="দুর্নীতি">
+                </div>
+                <div class="text-side">
+                    <h2>জনসেবায় প্রচলিত প্রতিবন্ধকতা</h2>
+                    <ul>
+                        <li><b>ঘুষ ও দুর্নীতি:</b> পকেট থেকে বাড়তি টাকা না দিলে সেবার আবেদন ফাইলবন্দি হয়ে থাকে।</li>
+                        <li><b>অপ্রয়োজনীয় বিলম্ব:</b> পিয়ন থেকে উর্ধ্বতন কর্মকর্তা—ফাইল নড়তে মাসের পর মাস সময় লাগে।
+                        </li>
+                        <li><b>অজানা অভিযোগ:</b> প্রান্তিক মানুষের দুঃখ-কষ্টের কথা উপরে পৌঁছানোর কোনো সহজ পথ নেই।</li>
                     </ul>
                 </div>
             </div>
-            <div
-                style="text-align: center; margin-top: var(--spacing-lg); border-top: 1px solid var(--glass-border); padding-top: var(--spacing-md);">
-                <p>&copy; ২০২৪ Swaad. সর্বস্বত্ব সংরক্ষিত।</p>
-            </div>
-        </div>
-    </footer>
+        </section>
 
-    <!-- Cart Drawer -->
-    <div class="cart-drawer" id="cart-drawer">
-        <div class="cart-header">
-            <h3>আপনার ব্যাগ (<span class="cart-count">0</span>)</h3>
-            <div class="cart-close" onclick="toggleCart()">&times;</div>
-        </div>
-        <div class="cart-body" id="cart-items-container">
-            <!-- Cart items will be injected here -->
-            <div class="empty-cart-msg">আপনার ব্যাগ খালি</div>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>মোট:</span>
-                <span id="cart-total-amount">৳০</span>
+        <!-- স্লাইড ৪: অবকাঠামোগত সমস্যা -->
+        <section class="slide" id="slide4">
+            <div class="content grid">
+                <div class="text-side">
+                    <h2>রাস্তা-ঘাট ও চলাচলের চ্যালেন্জ</h2>
+                    <ul>
+                        <li><b>ভাঙা রাস্তা ও ব্রিজ:</b> বছরের পর বছর যানচলাচলের অনুপযোগী থাকলেও সমাধান হয় না।</li>
+                        <li><b>ভুয়া রিপোর্ট:</b> কাজ না করেই অনেক সময় প্রশাসন থেকে ‘সম্পন্ন’ রিপোর্ট জমা দেওয়া হয়।</li>
+                        <li><b>সমাধান:</b> নাগরিক সরাসরি ছবি তুলে অভিযোগ করলে তা কেন্দ্রীয়ভাবে তদারকি করা হবে।</li>
+                    </ul>
+                </div>
+                <div class="image-side">
+                    <img src="assets/infrastructure.png" alt="অবকাঠামো">
+                </div>
             </div>
-            <button class="btn btn-primary w-100" onclick="showCheckout()">চেকআউট করুন</button>
-        </div>
-    </div>
+        </section>
 
-    <!-- Checkout Modal -->
-    <div class="checkout-modal" id="checkout-modal">
-        <div class="checkout-container">
-            <div class="checkout-close" onclick="closeCheckout()">&times;</div>
-            <div class="checkout-content">
-                <h2>অর্ডার সম্পন্ন করুন</h2>
-                
-                <div class="checkout-steps">
-                    <div class="checkout-section">
-                        <h4><i class="fas fa-location-dot"></i> ডেলিভারি ঠিকানা</h4>
-                        <div class="input-group">
-                            <input type="text" placeholder="আপনার নাম" id="cust-name">
-                        </div>
-                        <div class="input-group">
-                            <input type="text" placeholder="ফোন নম্বর" id="cust-phone">
-                        </div>
-                        <div class="input-group">
-                            <textarea placeholder="বিস্তারিত ঠিকানা (রাস্তা, বাড়ি নং, ফ্লোর)" id="cust-address"></textarea>
-                        </div>
+        <!-- স্লাইড ৫: স্বাস্থ্যসেবা ও হয়রানি -->
+        <section class="slide" id="slide5">
+            <div class="content grid">
+                <div class="image-side">
+                    <img src="assets/health.png" alt="স্বাস্থ্যসেবা">
+                </div>
+                <div class="text-side">
+                    <h2>চিকিৎসা সেবা ও হয়রানি নির্মূল</h2>
+                    <ul>
+                        <li><b>ডাক্তারের অনুপস্থিতি:</b> হাসপাতালে ডাক্তার বা উন্নত চিকিৎসার অভাবে প্রান্তিক মানুষের
+                            দুর্ভোগ।</li>
+                        <li><b>ওষুধ কালোবাজারি:</b> সরকারি ফ্রি ওষুধ বা জরুরি সেবায় অনিয়ম বন্ধ করা।</li>
+                        <li><b>তাত্ক্ষণিক মনিটরিং:</b> অভিযোগ আসার সাথে সাথে জেলা ও বিভাগীয় কর্মকর্তাদের জবাবদিহিতা।
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- স্লাইড ৬: সরাসরি তদারকি ব্যবস্থা -->
+        <section class="slide" id="slide6">
+            <div class="content">
+                <h2>২৪ ঘণ্টা সার্বক্ষণিক ডিজিটাল তদারকি</h2>
+                <div class="categories">
+                    <div class="cat-card">
+                        <h3>লাইভ ড্যাশবোর্ড</h3>
+                        <p>তারেক রহমান সরাসরি ম্যাপে দেখবেন কোন এলাকায় অভিযোগ সবচেয়ে বেশি।</p>
                     </div>
-
-                    <div class="checkout-section" style="margin-top: 2rem;">
-                        <h4><i class="fas fa-credit-card"></i> পেমেন্ট মেথড</h4>
-                        <div class="payment-options">
-                            <div class="payment-card active" onclick="selectPayment(this, 'bkash')">
-                                <img src="https://web.shadhinmusic.com/public/payment-gateways/bkash.png" alt="bkash" style="height: 30px;">
-                                <span>বিকাশ</span>
-                            </div>
-                            <div class="payment-card" onclick="selectPayment(this, 'nagad')">
-                                <img src="https://static.thenounproject.com/png/5054238-200.png" alt="nagad" style="height: 30px;">
-                                <span>নগদ</span>
-                            </div>
-                            <div class="payment-card" onclick="selectPayment(this, 'cod')">
-                                <i class="fas fa-truck" style="font-size: 1.5rem;"></i>
-                                <span>ক্যাশ অন ডেলিভারি</span>
-                            </div>
-                        </div>
+                    <div class="cat-card">
+                        <h3>অ্যালার্ট সিস্টেম</h3>
+                        <p>অভিযোগের ২ ঘণ্টার মধ্যে প্রাথমিক পদক্ষেপ না নিলে স্বয়ংক্রিয় ‘রেড অ্যালার্ট’।</p>
+                    </div>
+                    <div class="cat-card">
+                        <h3>অফিসার ট্র্যাকিং</h3>
+                        <p>কোন অফিসার কত দ্রুত সমাধান দিচ্ছেন, তার পারফরম্যান্স স্কোরিং।</p>
                     </div>
                 </div>
+                <div style="margin-top: 30px;">
+                    <a href="dashboard.html" class="live-btn">লাইভ ড্যাশবোর্ড প্রিভিউ দেখুন</a>
+                </div>
+            </div>
+        </section>
 
-                <div class="checkout-summary">
-                    <div class="summary-row">
-                        <span>সাবটোটাল</span>
-                        <span id="summary-subtotal">৳০</span>
+        <!-- স্লাইড ৭: যেভাবে কাজ করবে -->
+        <section class="slide" id="slide7">
+            <div class="content grid">
+                <div class="image-side">
+                    <img src="assets/flow.png" alt="কাজের ধাপ">
+                </div>
+                <div class="text-side">
+                    <h2>রিপোর্ট এবং অ্যাকশন থিওরি</h2>
+                    <ul>
+                        <li><b>ধাপ ১:</b> নাগরিক মোবাইল অ্যাপের মাধ্যমে তার সমস্যা লিখে সরাসরি পাঠান।</li>
+                        <li><b>ধাপ ২:</b> অভিযোগটি একই সাথে স্থানীয় প্রশাসন এবং কেন্দ্রীয় মনিটরে পৌঁছাবে।</li>
+                        <li><b>ধাপ ৩:</b> সংশ্লিষ্ট দপ্তর সমাধান শেষে ডিজিটাল ‘Solved’ রিপোর্ট দাখিল করবে।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- স্লাইড ৮: পুরো বাংলাদেশের অন্তর্ভুক্তি -->
+        <section class="slide" id="slide8">
+            <div class="content">
+                <h2>দেশের প্রতিটি স্তরে প্রশাসনিক জবাবদিহিতা</h2>
+                <div class="categories">
+                    <div class="cat-card">
+                        <h3>বিভাগ ও জেলা</h3>
+                        <p>মাঠ পর্যায়ের সার্বিক তদারকি ও রিপোর্ট।</p>
                     </div>
-                    <div class="summary-row">
-                        <span>ডেলিভারি ফি</span>
-                        <span>৳৫০</span>
+                    <div class="cat-card">
+                        <h3>উপজেলা ও থানা</h3>
+                        <p>আইন-শৃঙ্খলা ও প্রশাসনিক সমাধান নিশ্চিতকরণ।</p>
                     </div>
-                    <div class="summary-row total">
-                        <span>মোট পরিশোধযোগ্য</span>
-                        <span id="summary-total">৳০</span>
+                    <div class="cat-card">
+                        <h3>ইউনিয়ন পরিষদ</h3>
+                        <p>প্রান্তিক মানুষের সরাসরি ও শেষ আশ্রয়স্থল।</p>
+                    </div>
+                    <div class="cat-card">
+                        <h3>বাজার ও জনপদ</h3>
+                        <p>চাঁদাবাজি ও নিত্যপণ্যের দাম নিয়ন্ত্রণে ২৪/৭ নজরদারি।</p>
                     </div>
                 </div>
-
-                <button class="btn btn-primary w-100" style="margin-top: 2rem;" onclick="confirmOrder()">অর্ডার নিশ্চিত করুন</button>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Search Overlay -->
-    <div class="search-overlay" id="search-overlay">
-        <div class="search-close" id="search-close">&times;</div>
-        <div class="search-box">
-            <input type="text" placeholder="খাবার খুঁজুন..." id="search-input">
-            <i class="fas fa-search"></i>
-        </div>
-    </div>
+        <!-- স্লাইড ৯: বাজার ও নিরাপত্তাহীনতা রোধ -->
+        <section class="slide" id="slide9">
+            <div class="content grid">
+                <div class="text-side">
+                    <h2>চাঁদাবাজি ও বাজার নিয়ন্ত্রণ</h2>
+                    <ul>
+                        <li><b>চাঁদাবাজি জিরো টলারেন্স:</b> সাধারণ মানুষ বা ব্যবসায়ীদের ওপর কোনো হয়রানি করা যাবে না।
+                        </li>
+                        <li><b>বাজার মনিটরিং:</b> দ্রব্যমূল্য অস্বাভাবিক বাড়তে থাকলে রিয়েল-টাইম অ্যালার্ট।</li>
+                        <li><b>নিরাপত্তা:</b> বিশেষ করে মফস্বল এলাকায় আইনি সহায়তা কয়েক মিনিটের মধ্যে নিশ্চিত করা।</li>
+                    </ul>
+                </div>
+                <div class="image-side">
+                    <img src="assets/market.png" alt="বাজার">
+                </div>
+            </div>
+        </section>
 
-    <script src="js/main.js"></script>
+        <!-- স্লাইড ১০: সরাসরি নেতৃত্বের সাথে সংযোগ -->
+        <section class="slide" id="slide10">
+            <div class="content grid">
+                <div class="image-side">
+                    <img src="assets/admin.png" alt="নেতৃত্ব">
+                </div>
+                <div class="text-side">
+                    <h2>তারেক রহমানের ভিশন এবং জনগণের সংযোগিত</h2>
+                    <ul>
+                        <li><b>ব্যক্তিগত তদারকি:</b> তিনি নিজেই গুরুত্বপূর্ণ ইস্যুগুলো ব্যক্তিগতভাবে মনিটর করবেন।</li>
+                        <li><b>আস্থা ও ভালোবাসা:</b> সাধারণ মানুষের মনে বিশ্বাস জন্মাবে যে "উপরে কেউ আমার কথা ভাবছে"।
+                        </li>
+                        <li><b>জনপ্রিয়তা:</b> সরাসরি সংযোগ নেতার প্রতি জনগণের সমর্থন ১০ গুণ বাড়িয়ে দেবে।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- স্লাইড ১১: প্রশাসনিক বিপ্লব -->
+        <section class="slide" id="slide11">
+            <div class="content grid">
+                <div class="text-side">
+                    <h2>৫ বছরের কাজ ১ বছরে সম্পাদন</h2>
+                    <ul>
+                        <li><b>লাল ফিতা মুক্ত প্রশাসন:</b> অনুমোদনের জন্য বছরের পর বছর দাঁড়িয়ে থাকতে হবে না।</li>
+                        <li><b>স্মার্ট অটোমেশন:</b> ডিজিটাল ফাইল ট্র্যাকিং সিস্টেম যা গতি বাড়িয়ে দেবে।</li>
+                        <li><b>উন্নয়নমূলক বিপ্লব:</b> সরাসরি তদারকির কারণে প্রজেক্ট দ্রুত সম্পন্ন হবে।</li>
+                    </ul>
+                </div>
+                <div class="image-side">
+                    <img src="assets/main.png" alt="উন্নয়ন">
+                </div>
+            </div>
+        </section>
+
+        <!-- স্লাইড ১২: সমস্যা বনাম সমাধান (Matrix) -->
+        <section class="slide" id="slide12">
+            <div class="content">
+                <h2>সমস্যা বনাম ডিজিটাল সমাধান (Matrix)</h2>
+                <div class="categories" style="grid-template-columns: repeat(2, 1fr); text-align: left;">
+                    <div class="cat-card" style="border-left: 5px solid red;">
+                        <h3 style="color: red;">পূর্বতন সমস্যা</h3>
+                        <p>১. ঘুষ ছাড়া কোনো ফাইল বা সেবা পাওয়া অসম্ভব।</p>
+                        <p>২. রাস্তা ভেঙে চলাচলের অনুপযোগী হয়ে থাকা।</p>
+                        <p>৩. ক্ষমতার অপব্যবহার ও চাঁদাবাজির ভয়।</p>
+                        <p>৪. হাসপাতালের ওষুধ চুরি ও সাধারণের হয়রানি।</p>
+                    </div>
+                    <div class="cat-card" style="border-left: 5px solid var(--primary);">
+                        <h3 style="color: var(--primary);">আমাদের আধুনিক সমাধান</h3>
+                        <p>১. সম্পূর্ণ ডিজিটাল ট্র্যাকিং, মানুষের হস্তক্ষেপ নেই।</p>
+                        <p>২. ছবিসহ সরাসরি রিপোর্টিং ও বাজেট কন্ট্রোল।</p>
+                        <p>৩. ওয়ান-ক্লিক রিপোর্ট ও সরাসরি লিডারশিপ অ্যালার্ট।</p>
+                        <p>৪. স্মার্ট ইনভেন্টরি ও সরাসরি তদারকি ব্যবস্থা।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- স্লাইড ১৩: নাগরিক ক্ষমতায়ন -->
+        <section class="slide" id="slide13">
+            <div class="content grid">
+                <div class="image-side">
+                    <img src="assets/housing.png" alt="নাগরিক">
+                </div>
+                <div class="text-side">
+                    <h2>নাগরিক ক্ষমতায়ন</h2>
+                    <ul>
+                        <li><b>মৌলিক অধিকার:</b> বাসস্থান, শিক্ষা ও অন্ন নিশ্চিত করতে নির্ভুল ডাটা।</li>
+                        <li><b>অধিকার সচেতনতা:</b> প্রতিটি নাগরিক যেন জানে তার সমস্যা জানানোর পথ খোলা।</li>
+                        <li><b>স্মার্ট নাগরিক:</b> ডিজিটাল মাধ্যমে অধিকার আদায়ের সচেতন সমাজ।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- স্লাইড ১৪: কেন এটি বর্তমানে অপরিহার্য? -->
+        <section class="slide" id="slide14">
+            <div class="content">
+                <h2>এই সিস্টেমটি কেন আজই প্রয়োজন?</h2>
+                <div class="categories" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="cat-card">
+                        <h3>দ্রুত জবাবদিহিতা</h3>
+                        <p>৫ মিনিটের মধ্যে অভিযোগ পৌঁছাবে, ২ ঘণ্টায় হবে প্রাথমিক ব্যবস্থা।</p>
+                    </div>
+                    <div class="cat-card">
+                        <h3>শর্তহীন দুর্নীতি দমন</h3>
+                        <p>কাগজের ফাইলের জট নেই, তাই দুর্নীতির সুযোগ নেই।</p>
+                    </div>
+                    <div class="cat-card">
+                        <h3>আস্থাশীল নেতৃত্ব</h3>
+                        <p>তৃণমূল থেকে কেন্দ্র পর্যন্ত একটি সরাসরি চেইন অব কমান্ড।</p>
+                    </div>
+                    <div class="cat-card">
+                        <h3>স্মার্ট গভর্ন্যান্স</h3>
+                        <p>ভবিষ্যৎ বাংলাদেশের জন্য একমাত্র সফল সমাধান।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- স্লাইড ১৫: স্মার্ট বাংলাদেশ ২০৪১ -->
+        <section class="slide" id="slide15">
+            <div class="content final-slide">
+                <h2>স্বপ্ন থেকে বাস্তবে</h2>
+                <p>সব বাধা পেরিয়ে, সব দুর্নীতি নির্মূল করে আমরা গড়বো এক নতুন বাংলাদেশ।</p>
+                <p class="slogan">"সবার আগে বাংলাদেশ - স্মার্ট আগামীর ভিত্তি"</p>
+                <div class="thank-you">তারেক রহমানের পক্ষ থেকে ধন্যবাদ</div>
+            </div>
+        </section>
+
+        <!-- স্লাইড ১৬: উপসংহার ও যোগাযোগ -->
+        <section class="slide" id="slide16">
+            <div class="content">
+                <h2>উপসংহার</h2>
+                <p style="font-size: 1.5rem;">এই বৈপ্লবিক ডিজিটাল সিস্টেম বাস্তবায়িত হলে রাষ্ট্র ও জনগণের মধ্যে ১০০%
+                    কানেক্টিভিটি তৈরি হবে। যা স্মার্ট প্রশাসনিক কাঠামো বিনির্মাণে একটি ঐতিহাসিক হাতিয়ার হিসেবে কাজ করবে।
+                </p>
+                <div class="presenter-info" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                    <p><b>প্রস্তাবক: আবদুল্লাহ আল নাছের</b></p>
+                    <p>মোবাইল: ০১৬৭৮৬৮৪১৪১</p>
+                    <p>ইমেইল: alnasardinner@gmail.com</p>
+                    <p>ওয়েবসাইট: www.ranknaser.com</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
